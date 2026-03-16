@@ -1,5 +1,5 @@
 const API = (() => {
-  const BASE_URL = 'http://127.0.0.1:5050/api'; // Change to deployed URL
+  const BASE_URL = window.RUNTIME_CONFIG?.API_BASE_URL || 'http://127.0.0.1:5050/api';
 
   const getToken = () => localStorage.getItem('zion_token');
   const setToken = (t) => localStorage.setItem('zion_token', t);

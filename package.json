@@ -1,0 +1,8 @@
+{
+  "name": "zionllc-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "netlify:config": "node scripts/generate-runtime-config.js"
+  }
+}

@@ -1017,7 +1017,7 @@ async function loadLocations() {
           <p>${status}</p>
           <p>${escapeHtml(l.address || '')}</p>
           <p>${escapeHtml(l.phone || '')}</p>
-          <p>${escapeHtml(l.hours?.weekday || '')}</p>
+          <p>${escapeHtml(typeof l.hours === 'string' ? l.hours : (l.hours?.weekday || ''))}</p>
           <a class="btn btn-outline" href="${mapLink}" target="_blank" rel="noreferrer">Get Directions</a>
         </article>
       `;
