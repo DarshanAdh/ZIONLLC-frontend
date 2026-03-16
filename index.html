@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zion LLC - Precision. Speed. Trust.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <nav id="navbar" class="navbar">
+    <a href="#" class="nav-logo" onclick="showPage('home')">
+      <span class="logo-square">Z</span>
+      <span>Zion<span class="logo-accent">LLC</span></span>
+    </a>
+    <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu">☰</button>
+    <div id="nav-menu" class="nav-menu">
+      <div class="nav-links">
+        <a id="nav-home" href="#" onclick="showPage('home')">Home</a>
+        <a id="nav-shipping" href="#" onclick="showPage('shipping')">Shipping</a>
+        <a id="nav-tracking" href="#" onclick="showPage('tracking')">Tracking</a>
+        <a id="nav-design" href="#" onclick="showPage('design')">Design & Print</a>
+        <a id="nav-locations" href="#" onclick="showPage('locations')">Locations</a>
+        <a id="nav-support" href="#" onclick="showPage('support')">Support</a>
+      </div>
+      <div class="nav-actions"></div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page active" id="page-home">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Precision. Speed. Trust.</p>
+          <h1><em>Deliver the World.</em> On time.</h1>
+          <p>Premium logistics for businesses and individuals. Ship anywhere in 60+ countries.</p>
+          <div class="hero-actions">
+            <button class="btn btn-cta" onclick="showPage('shipping')">Create Shipment</button>
+            <button class="btn btn-outline-light" onclick="showPage('tracking')">Track a Package</button>
+          </div>
+          <form id="hero-track-form" class="hero-track">
+            <label for="hero-track-number">Enter tracking number</label>
+            <div>
+              <input id="hero-track-number" type="text" placeholder="ZN-ABC123">
+              <button type="submit" class="btn btn-cta">Search</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="section"><div class="quick-actions grid-4"><article class="card action-card"><h3>📮 Create Shipment</h3><p>Send anywhere, instantly</p></article><article class="card action-card"><h3>📍 Track Package</h3><p>Live status updates</p></article><article class="card action-card"><h3>📅 Schedule Pickup</h3><p>We come to you</p></article><article class="card action-card"><h3>🗺️ Find Location</h3><p>Nearest drop-off</p></article></div></section>
+      <section class="section"><h2>Built for International Shipping</h2><div class="grid-2"><article class="card service-card"><h3>🌍 International Priority</h3><p>Door-to-door delivery in 60+ countries with customs-ready documentation.</p></article><article class="card service-card"><h3>🛃 Customs & Compliance</h3><p>Pro-forma, duties guidance, and shipment validation to reduce border delays.</p></article></div></section>
+      <section class="cta-banner"><h2>Ready to ship smarter?</h2><div><button class="btn btn-cta" onclick="showPage('shipping')">Start Shipping</button> <button class="btn btn-outline-light" onclick="showPage('support')">Talk to Support</button></div></section>
+    </section>
+
+    <section class="page" id="page-shipping"><div class="section"><h2>Shipping</h2><div class="pill-tabs"><button class="pill active" data-tab="ship-create">Create a Shipment</button><button class="pill" data-tab="ship-pickups">Schedule & Manage Pickups</button><button class="pill" data-tab="ship-supplies">Packing & Shipping Supplies</button></div><div id="ship-create" class="tab-panel active"></div><div id="ship-pickups" class="tab-panel"></div><div id="ship-supplies" class="tab-panel"></div></div></section>
+    <section class="page" id="page-tracking"><div class="section"><h2>Tracking</h2><form id="track-form" class="track-search"><label for="track-number">Enter Tracking Number</label><div><input id="track-number" type="text" placeholder="ZN-ABC123"><button class="btn btn-cta" type="submit">Track</button></div></form><div id="tracking-result"></div></div></section>
+    <section class="page" id="page-design"><div class="section"><h2>Design & Print</h2><div class="grid-2"><div class="card"><h3>Label Designer</h3><div id="label-preview" class="label-preview"><div class="label-header"><img src="./assets/logo.svg" alt="Zion logo"><span id="lp-service">STANDARD</span></div><p><strong>FROM:</strong> <span id="lp-from">Sender Address</span></p><p><strong>TO:</strong> <span id="lp-to">Recipient Address</span></p><svg id="lp-barcode"></svg></div></div><form class="card" id="label-form"><h3>Label Data</h3><label>Sender</label><input id="label-from-input" type="text" placeholder="Sender name, address"><label>Recipient</label><input id="label-to-input" type="text" placeholder="Recipient name, address"><label>Service</label><select id="label-service-input"><option>STANDARD</option><option>EXPRESS</option><option>OVERNIGHT</option></select><div class="form-actions"><button class="btn btn-outline" id="label-autofill" type="button">Auto-fill from last shipment</button><button class="btn btn-cta" type="button" onclick="window.print()">Download / Print</button></div></form></div><div class="grid-3 mt-24"><article class="card"><h3>Batch Labels</h3><p>Coming soon. Be the first to know.</p><input id="batch-email" type="email" placeholder="Email"><button class="btn btn-cta mt-12" onclick="captureBatchInterest()">Notify Me</button></article><article class="card"><h3>How to Pack Fragile Items</h3><p>Wrap each item, fill void space, double-box if needed.</p></article><article class="card"><h3>How to Pack Electronics</h3><p>Use anti-static bags, foam inserts, and reinforced corners.</p></article></div></div></section>
+    <section class="page" id="page-locations"><div class="section"><h2>Locations</h2><form id="locations-form" class="grid-4"><input id="loc-city" type="text" placeholder="City"><input id="loc-zip" type="text" placeholder="ZIP"><select id="loc-type"><option value="">All Types</option><option value="full_service">Full Service</option><option value="drop_off">Drop-off Point</option><option value="locker">Locker</option></select><button class="btn btn-cta" type="submit">Search</button></form><div id="locations-grid" class="grid-3 mt-24"></div></div></section>
+    <section class="page" id="page-support"><div class="section"><h2>Support</h2><div class="pill-tabs"><button class="pill active" data-tab="support-customer">Customer Support</button><button class="pill" data-tab="support-faq">FAQ</button><button class="pill" data-tab="support-guide">Zion Service Guide</button></div><div id="support-customer" class="tab-panel active"></div><div id="support-faq" class="tab-panel"></div><div id="support-guide" class="tab-panel"></div></div></section>
+    <section class="page" id="page-auth"><div class="auth-shell"><div class="auth-left"><img src="./assets/logo.svg" alt="Zion logo"><h2>Zion LLC</h2><p>Precision. Speed. Trust.</p></div><div class="auth-right"><div class="pill-tabs"><button class="pill active" data-auth="signin">Sign In</button><button class="pill" data-auth="signup">Create Account</button></div><form id="signin-form" class="auth-form active"></form><form id="signup-form" class="auth-form"></form></div></div></section>
+    <section class="page" id="page-dashboard"><div class="section dashboard"><aside class="dash-nav"><button onclick="showDashSection('shipments')">📦 My Shipments</button><button onclick="showDashSection('pickups')">📅 My Pickups</button><button onclick="showDashSection('profile')">👤 My Profile</button><button onclick="showPage('tracking')">📍 Track Package</button><button onclick="showDashSection('addresses')">🏠 Saved Addresses</button><button onclick="handleLogout()">🚪 Sign Out</button></aside><section id="dash-content"><div id="dash-shipments" class="dash-section active"></div><div id="dash-pickups" class="dash-section"></div><div id="dash-profile" class="dash-section"></div><div id="dash-addresses" class="dash-section"></div></section></div></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div><h4>Zion LLC</h4><p>Precision. Speed. Trust.</p></div>
+      <div><h5>Quick Links</h5><a href="#" onclick="showPage('home')">Home</a><a href="#" onclick="showPage('shipping')">Shipping</a></div>
+      <div><h5>Services</h5><span>Express Delivery</span><span>International Shipping</span></div>
+      <div><h5>Contact</h5><span>1-800-ZION-LLC</span><span>support@zionllc.com</span></div>
+    </div>
+  </footer>
+
+  <div id="toast-stack" class="toast-stack"></div>
+  <div id="modal-root"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script src="./api.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
